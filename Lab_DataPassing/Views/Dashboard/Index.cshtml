@@ -1,0 +1,13 @@
+﻿@using System.Text.Json
+@{
+    ViewData["Title"] = "Index";
+    string strUser = Context.Session.GetString("User");
+    LoginViewModel user = JsonSerializer.Deserialize<LoginViewModel>(strUser)
+        ;
+}
+
+<h3>Dashboard</h3>
+
+<p>@TempData["Message"]</p>
+<p>Hello @user.Email</p>
+
